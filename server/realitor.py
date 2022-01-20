@@ -13,7 +13,7 @@ class Realitor:
         query_string = {
             "city": city,
             "offset": "0",
-            "limit": "2",
+            "limit": "20",
             "state_code": state_code,
             "sort": "relevance"
         }

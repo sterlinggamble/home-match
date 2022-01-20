@@ -53,6 +53,7 @@ def match():
             'match_score': 0.0
         })
 
+    # add search image to listings
     listings.append({
         'photo': img_url,
         'tags': [],
@@ -61,6 +62,9 @@ def match():
         'color_score': 0.0,
         'match_score': 0.0
     })
+
+    # filter out any listings with no photos
+    listings = [x for x in listings if 'photo' in x and x['photo']]
 
     # get the tags and colors for each lisitng
     for listing in listings:

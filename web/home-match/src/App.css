@@ -9,7 +9,7 @@
 
 .listings {
   display: flex;
-  justify-content: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding-left: 20px;
   padding-right: 20px;
