@@ -18,29 +18,29 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
 app = Flask(__name__)
 
-# app.add_url_rule(
-#     '/api/match',
-#     view_func=MatchView.as_view('match_home'),
-#     methods=['POST']
-# )
 
-# app.add_url_rule(
-#     '/api/match_ios',
-#     view_func=MatchView.as_view('match_home'),
-#     methods=['GET']
-# )
 @app.route('/test', methods=['POST'])
 def test():
     data = request.json
     return jsonify(data)
 
 
+@app.route('/listing', methods=['GET'])
+def listing():
+    id = request.args.get('id')
+    api = Realitor()
+    listing = api.listing(id)
+    response = jsonify(listing)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
+
 @app.route('/match', methods=['GET'])
 def match():
-    # request.json = {city, state, code, image_url}
-    # fetch listings in the location
-    city = request.json['city']
-    state_code = request.json['state']
+    city = request.args.get('city')
+    state_code = request.args.get('state')
+    img_url = request.args.get('img_url').encode('iso-8859-1').decode('utf-8')
+
     api = Realitor()
     listings = api.listings(city, state_code)
 
@@ -54,7 +54,7 @@ def match():
         })
 
     listings.append({
-        'photo': request.json['image_url'],
+        'photo': img_url,
         'tags': [],
         'colors': [],
         'tag_score': 0.0,
@@ -102,7 +102,7 @@ def match():
             listing['color_score'] = max(listing['color_score'], cos_sim)
 
     # OpenCV algorithm
-    source_img = process_image(request.json['image_url'])
+    source_img = process_image(img_url)
     source_orb = cv2.ORB_create(nfeatures=1000)
     source_kp, source_des = source_orb.detectAndCompute(source_img, None)
     source_bf = cv2.BFMatcher()
@@ -119,12 +119,14 @@ def match():
 
         listing['match_score'] = len(good)
 
-    return jsonify(
+    response = jsonify(
         sorted(
             listings[:-1],
             key=lambda x: x['tag_score']+x['color_score']+x['match_score'],
             reverse=True
         ))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 def google_vision(image_url):

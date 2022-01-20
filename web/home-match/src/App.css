@@ -1,0 +1,25 @@
+.App {
+  font-family: Helvetica Neue;
+}
+
+.listings-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.listings {
+  display: flex;
+  justify-content: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 90px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}

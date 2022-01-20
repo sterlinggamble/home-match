@@ -1,0 +1,61 @@
+.similar-homes {
+    padding-top: 120px;
+    /* margin-left: 60px; */
+}
+
+.similar-homes .listings {
+    padding: 0;
+    margin-left: 120px;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.similar-homes .listing {
+    margin: 30px 20px 0px 20px; 
+}
+
+.similar-homes .top-info {
+    /* display: inline;
+    float: left; */
+    margin-top: 23px;
+}
+
+.similar-homes .listing .price {
+    display: inline;
+    font-weight: bold;
+    font-size: 19px;
+}
+.similar-homes .location {
+    display: inline;
+    font-weight: 500;
+    font-size: 15px;
+    opacity: 50%;
+    margin-left: 13px;
+}
+
+.similar-homes .specs {
+    margin: None;
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.search-listing img {
+    width: 339px;
+    height: 297px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.search-listing {
+    width: 339px;
+    height: 297px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin: 30px 20px 0px 20px; 
+}
+

@@ -1,0 +1,42 @@
+.listing {
+    margin: 30px 20px 0px 20px; 
+}
+
+.top-info {
+    /* display: inline;
+    float: left; */
+    margin-top: 23px;
+}
+
+.listing .price {
+    display: inline;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.location {
+    display: inline;
+    font-weight: 500;
+    font-size: 15px;
+    opacity: 50%;
+    margin-left: 13px;
+}
+
+.specs {
+    margin: None;
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.listing img {
+    width: 380px;
+    height: 254px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+a, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
+}

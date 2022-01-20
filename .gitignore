@@ -2,3 +2,5 @@
 env
 /server/settings.py
 /server/notes.txt
+/web/test.css
+/web/test.html
